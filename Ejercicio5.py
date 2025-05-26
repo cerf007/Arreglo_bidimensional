@@ -26,8 +26,7 @@ for zona in range(4):
         zona_mayor = venta
         zona_mayor_index = zona
 
-print("Cantidad de computadores vendidos por todos los vendedores en todas las zonas:", suma_zon)
-print (zona_mayor)
+
 
 
 #Inciso [b]
@@ -44,5 +43,14 @@ for vendedor in range(3):
         vendedor_menor = venta
         vendedor_menor_index = vendedor
 
-print("Cvendedores:", suma_vendedor)
-print (vendedor_menor_index + 1)
+
+#Inciso [c]
+suma_total = 0
+for vendedor in range(3):
+    suma_total += sum(Computadores_vendidos[vendedor])
+
+
+#Sección de resultados
+print(f"Zona en la que más computadoras se vendió: {zona_mayor}")
+print(f"Vendedor que menos computadores vendió: {vendedor_menor_index + 1}")
+print(f"Cantidad total de computadores vendidos por todos los vendedores en todas las zonas: {suma_total}")
