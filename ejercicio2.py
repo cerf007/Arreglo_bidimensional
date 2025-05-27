@@ -7,13 +7,13 @@ cant_materia = 3
 #Definimos el numero de estudiantes y materias para nuestro bucle
 
 estudiante = []
-#Se crea una lista vacía para ingresar el nombre de los estudiantes y luego sus notas
+#Se crea una lista vacía para almacenar el nombre de los estudiantes y luego sus notas mas adelante
 
 for alumno in range(cant_estudiante):
     nombre = (input(f"Ingrese el nombre del estudiante {alumno + 1}: "))
     nota = []
     #Se crea un bucle para obtener el nombre del estudiante y se  crea una lista vacía para almacenar las notas
-    
+
     for asignatura in range(cant_materia):
         while True:
             calificacion = float(input(f"Ingrese la nota de la materia {asignatura + 1} del estudiante {nombre}: "))
@@ -22,13 +22,18 @@ for alumno in range(cant_estudiante):
             if 0 <= calificacion <= 100:
             #Si no se cumple la condición, le saltara el error 
                 break  
+            print("="*70)
             print("ERROR, INGRESE UNA NOTA VÁLIDA [0 - 100]: ") 
+            print("="*70)
             
         nota.append(calificacion) 
         #Al arreglo nota se le introduce los valores de las calificaciones
+        
 
     promedio = sum(nota) / cant_materia
     estudiante.append([nombre] + nota + [promedio])
+    #Se ingresa al arreglo estudiante los areglos de nombre, nota y promedio
+    #Se convierte una matriz bidimensional
 
 print("\n Resumen ")
 print(f"{'Nombre':<15} {'Asignatura':<15} {'Asignatura 2':<15} {'Asignatura 3':<15} {'Promedio':<10}")
