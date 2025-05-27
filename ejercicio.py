@@ -36,11 +36,11 @@ print("-"*78)
 # Ventas por mes
 ventas_mes = [sum(mes) for mes in matriz_ventas]
 
-# Ventas totales
+# Ventas totales de todas las tiendas
 ventas_totales = sum(ventas_mes)
 print(f"\nVentas totales de todas las tiendas: ${ventas_totales:,}")
 
-# Ventas por tienda (suma por columnas)
+# Ventas por tienda
 ventas_tienda = [sum(matriz_ventas[i][j] for i in range(len(matriz_ventas))) for j in range(len(matriz_tienda))]
 for i, tienda in enumerate(matriz_tienda):
     print(f"Ventas totales de {tienda}: ${ventas_tienda[i]:,}")
