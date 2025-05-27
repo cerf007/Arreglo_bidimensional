@@ -16,25 +16,23 @@ for alumno in range(cant_estudiante):
     
     for asignatura in range(cant_materia):
         while True:
-            calificacion = float(input(f"Ingrese la nota {asignatura + 1} del estudiante {nombre}: "))
+            calificacion = float(input(f"Ingrese la nota de la materia {asignatura + 1} del estudiante {nombre}: "))
             #Cree un while true para una validación de error
             
-            if calificacion <0 or calificacion > 100: 
+            if 0 <= calificacion <= 100:
             #Si no se cumple la condición, le saltara el error 
                 break  
             print("ERROR, INGRESE UNA NOTA VÁLIDA [0 - 100]: ") 
             
         nota.append(calificacion) 
         #Al arreglo nota se le introduce los valores de las calificaciones
-    estudiante.append([nombre] + nota)      
-    #Al arreglo estudiante se le introduce los nombres y el arreglo nota
-    
+
     promedio = sum(nota) / cant_materia
     estudiante.append([nombre] + nota + [promedio])
 
-print("n\ Resumen ")
-print(f"{'Nombre':<15} {'Calificación 1':<15} {'Calificación 2':<15} {'Calificación 3':<15} {'Promedio':<10}")
+print("\n Resumen ")
+print(f"{'Nombre':<15} {'Asignatura':<15} {'Asignatura 2':<15} {'Asignatura 3':<15} {'Promedio':<10}")
 print("=" * 70)
-for n_alumnos in estudiante:
-    print(f"{estudiante[0]:<15} {estudiante[1]:<15.2f} {estudiante[2]:<15.2f} {estudiante[3]:<15.2f} {estudiante[4]:<10.2f}") 
-    #Se imprime cada estudiante por su posición con su respectiva nota
+for alumno in estudiante:
+    print(f"{alumno[0]:<15} {alumno[1]:<15.2f} {alumno[2]:<15.2f} {alumno[3]:<15.2f} {alumno[4]:<10.2f}")
+    #Imprime al estudiante, las notas y el promedio accediendo uno a uno
