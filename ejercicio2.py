@@ -10,25 +10,27 @@ estudiante = []
 #Se crea una lista vacía para ingresar el nombre de los estudiantes y luego sus notas
 
 for alumno in range(cant_estudiante):
-    nombre = (input(f"Ingrese el nombre del estudiante {cant_estudiante}: "))
+    nombre = (input(f"Ingrese el nombre del estudiante {alumno + 1}: "))
     nota = []
     #Se crea un bucle para obtener el nombre del estudiante y se  crea una lista vacía para almacenar las notas
     
     for asignatura in range(cant_materia):
         while True:
-            calificacion = float(input(f"Ingrese la nota {cant_materia} del estudiante {nombre}; "))
+            calificacion = float(input(f"Ingrese la nota {asignatura + 1} del estudiante {nombre}: "))
             #Cree un while true para una validación de error
             
             if calificacion <0 or calificacion > 100: 
             #Si no se cumple la condición, le saltara el error 
-                print("ERROR, INGRESE UNA NOTA VÁLIDA [0 - 100]: ") 
-                break      
+                break  
+            print("ERROR, INGRESE UNA NOTA VÁLIDA [0 - 100]: ") 
+            
         nota.append(calificacion) 
         #Al arreglo nota se le introduce los valores de las calificaciones
     estudiante.append([nombre] + nota)      
     #Al arreglo estudiante se le introduce los nombres y el arreglo nota
     
-
+    promedio = sum(nota) / cant_materia
+    estudiante.append([nombre] + nota + [promedio])
 
 print("n\ Resumen ")
 print(f"{'Nombre':<15} {'Calificación 1':<15} {'Calificación 2':<15} {'Calificación 3':<15} {'Promedio':<10}")
